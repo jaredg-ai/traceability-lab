@@ -44,6 +44,18 @@ app.post('/api/movie', (req, res) => {
     }
 })
 
+app.delete('/api/movie/:movieName', (req, res) => {
+    let existingMovieName = req.params.movieName
+    for (let i = 0; i < movie.length; i++) {
+        if (movie[i].movieName === existingMovieName) {
+            movie.splice(i, 1)
+            res.status(200).send('movie deleted')
+            return
+        }
+    }
+    res.status(400).send('movie not found')
+})
+
 const port = process.env.PORT || 4343
 
 app.use(rollbar.errorHandler())
