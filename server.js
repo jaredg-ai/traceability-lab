@@ -15,3 +15,10 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/index.html'))
     rollbar.info('html file served successfully')
 })
+
+
+const port = process.env.PORT || 4343
+
+app.use(rollbar.errorHandler())
+
+app.listen(port, () => console.log(`running on port: ${port}`))
