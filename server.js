@@ -20,6 +20,14 @@ app.get('/', (req, res) => {
     rollbar.info('html file served successfully')
 })
 
+app.post('/api/movie', (req, res) => {
+    let {name} = req.body
+    name = name.trim()
+
+    const index = movies.findIndex((movieName) => {
+        movieName === name
+    })
+})
 
 const port = process.env.PORT || 4343
 
