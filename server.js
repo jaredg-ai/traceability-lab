@@ -13,6 +13,7 @@ rollbar.log("Hello world!");
 
 const app = express()
 app.use(express.json())
+app.use('/style', express.static('./public/style.css'))
 
 let movies = []
 
