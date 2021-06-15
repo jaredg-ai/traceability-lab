@@ -46,6 +46,10 @@
                         })
                     })
                 })
+                axios.delete('/api/movie', {name: nameInput.value})
+                .then(res => {
+                    
+                })
         }
         addForm.addEventListener('submit', submitHandler)
     </script>
